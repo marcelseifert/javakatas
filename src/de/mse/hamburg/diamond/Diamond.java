@@ -32,23 +32,18 @@ final class Diamond {
     }
 
     static void calcStars(int step, StringBuffer sb, int halfDiamondRow) {
-        boolean buildDiamondFurther = step < halfDiamondRow;
         drawStars(halfDiamondRow, step, sb);
-        if (buildDiamondFurther) {
+        if (step < halfDiamondRow) {
             calcStars(step + 1, sb, halfDiamondRow);
-        }
-        if (buildDiamondFurther) {
             drawStars(halfDiamondRow, step, sb);
         }
     }
 
     public static void main(String[] args) {
-        System.out.printf("%s%n", printLambdaVersion(23));
+        System.out.printf("%s%n", print(23));
     }
 
-    public static String printLambdaVersion(
-            final int n
-    ) {
+    public static String printLambdaVersion(final int n) {
         if (n < 0 || n % 2 == 0) {
             return null;
         }
